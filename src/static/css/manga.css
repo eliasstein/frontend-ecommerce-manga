@@ -1,0 +1,34 @@
+.manga-container{
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    border: 2px solid whitesmoke;
+    border-radius: 20px;
+    transition: all 1s;
+    overflow: hidden;
+
+}
+.manga-container:hover{
+border: 2px solid rgb(240, 240, 240);
+}
+.manga-container:hover img{
+    transform: scale(1.1);
+}
+
+.manga-container img{
+    margin: 0 auto 0 auto;
+    width: 80%;
+    transition: all 0.5s;
+}
+.cart-button{
+    border-radius: 5px;
+    background-color: lightblue;
+}
+/*/////////////////////////////////RESPONSIVE//////////////////////////////////////*/
+@media screen and (max-width:710px){  
+    .cart-button{
+        width: 75px;
+    }
+}

@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+li{
+  display: inline;
+}
+
+p,h1,a{
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+}
+
+.background-header{
+  background-color: black; 
+  padding-bottom: 15px; 
+  display:flex; 
+  flex-direction: column;
+  /* gap: 250px; */
+}
+.social-header{
+  position: absolute;
+  left: 10%;
+  display: flex;
+  gap: 5px;
+}
+.social-header a{
+  font-size:24px;
+  margin: 3px 0;
+  color: white;
+}
+.announce{
+  overflow: hidden;
+  margin: 0 auto;
+  height: 20px;
+}
+@keyframes moverY {
+  0% {
+    transform: translateY(0);
+  }
+  16%{
+    transform: translateY(0);
+  }
+  32%{
+    transform: translateY(-25px);
+  }
+  48%{
+    transform: translateY(-25px);
+  }
+  64% {
+    transform: translateY(-50px);  
+  }
+  80%{
+    transform: translateY(-50px);  
+  }
+  96% {
+    transform: translateY(0);
+  }
+}
+.announce p{
+ animation: moverY 5s ease infinite;
+ color: whitesmoke; 
+ display: flex; 
+ margin: 2px;
+ white-space: nowrap;
+}
+.logo-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 20px;
+  align-items: center;
+}
+.uil-user-circle,.uil-heart-alt,.uil-shopping-cart{
+  font-size: 24px;
+}
+.search-bar{
+  position: absolute;
+  left: 38%;
+  /* margin: auto; */
+}
+.search-bar input{
+  height: 30px;
+  width: 300px;
+  border: 3px solid rgb(231, 231, 231);
+  border-radius: 10px;
+  box-shadow: none;
+}
+.search-bar button{
+  height: 35px;
+  border: 0;
+  background-color: whitesmoke
+}
+.nav-categories ul{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 24px;
+  margin: 10px 0 10px;
+}
+.nav-category{
+  color: black; /* O cualquier color que desees */
+  text-decoration: none; /* Elimina el subrayado */
+}
+.category-container{
+  visibility: hidden;
+  position:absolute;
+  padding: 5px;
+  margin-top:10px;
+  background-color: rgb(231, 231, 231);
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+li:hover .category-container{
+  visibility: visible;
+  opacity: 1;
+}
+.body-container{
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.new-mangas-container{
+ display: flex; 
+ flex-wrap: wrap;
+ gap: 20px;  
+}
+
+
+/*/////////////////////////////////RESPONSIVE//////////////////////////////////////*/
+@media screen and (max-width:710px){  /*si se modifica el mensaje tambien se debe modificar el responsive*/
+  /*/////////////////////////////////Announce header////////////////////////////////*/
+  .social-header{
+    position: relative;
+    left: 0;
+    justify-content: center;
+  }
+  .logo-container{
+    flex-direction: column;
+  }
+  .search-bar{
+    position: relative;
+    left: 0;
+  }
+  .search-bar input{
+    width: 200px;
+  }
+}
