@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import tiktok from "../static/images/tiktok.svg"
@@ -8,15 +8,18 @@ import banner from "../static/images/banner/banner.jpg"
 
 import {MangaComponent} from "./manga_element.jsx"
 
+const API_URL = import.meta.env.VITE_API_URL
+
 export const AnnounceHeader= () =>{
 
     const navigate=useNavigate();
     const [name, setName] = useState("");
+    const title="";
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(`The name you entered was: ${name}`)
-        navigate(`/search?${name}`)
+        navigate(`/search?name=${name}`)
       }
 
     return (
@@ -48,7 +51,7 @@ export const AnnounceHeader= () =>{
                     <img src={logo} height="100px"/>
                 </a>
                 <form onSubmit={handleSubmit} className="search-bar">
-                    <input type="text" value={name} onChange={e=>setName(e.target.value)}></input>
+                    <input type="text" onChange={e=>setName(e.target.value)}/>
                     <button><i className="uil uil-search-alt"></i></button>
                 </form>
                 <span className="user-options">
@@ -94,6 +97,15 @@ export const AnnounceHeader= () =>{
 
 
 export const LandingBody= () =>{
+
+    const [book,setBook]=useState(null);
+    useEffect(()=>{     //use effect hace la peticion cuando se monta el componente
+        fetch(API_URL+"/api/v1/books/recent")
+        .then(res=>res.json())
+        .then(book=>setBook(book))
+        .catch(error=>console.error("Error al obtener datos: ",error));
+    },[]);
+
     return (
             <main>
                 <img src={banner} style={{"width":"100%"}}/>
@@ -107,11 +119,18 @@ export const LandingBody= () =>{
                     <div>
                         <h1>Novedades</h1>
                         <div className="new-mangas-container">
-                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
-                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
-                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
-                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
-                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
+                        {book?.map(object=>{
+                            if(object!=null){
+                                // console.log(object)
+                                return <MangaComponent 
+                                key={object.id} 
+                                title={object.name} 
+                                price={"$"+object.price} 
+                                url={object.image} 
+                                onClick={()=>console.log(object.id)}/>                            
+                            }
+                            return null; // Evita que `map()` devuelva `undefined`
+                        })}
 
                         </div>
                     </div>

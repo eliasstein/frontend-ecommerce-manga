@@ -1,9 +1,9 @@
 import "../static/css/manga.css"
-export const MangaComponent= ({title,price,url}) =>{
+export const MangaComponent= ({title,price,url, onClick}) =>{
 
 return(
 <div className="manga-container">
-    <img src={url}></img>
+    <img src={url} onClick={onClick}></img>
     <div>
         <p>{title}</p>
         <p>{price}</p>

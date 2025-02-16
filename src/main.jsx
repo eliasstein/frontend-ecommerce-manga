@@ -5,7 +5,7 @@ import { AppRouter } from './router'
 
 createRoot(document.getElementById('root')).render(
   // React.Fragment Para produccion.
-  <StrictMode>
+  // <StrictMode>
     <AppRouter/>
-  </StrictMode>,
+  // </StrictMode>,
 )

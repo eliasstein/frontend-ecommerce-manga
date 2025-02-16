@@ -1,6 +1,6 @@
 .manga-container{
     width: 200px;
-    height: 400px;
+    /* height: 400px; */
     display: flex;
     flex-direction: column;
     background-color: aliceblue;
