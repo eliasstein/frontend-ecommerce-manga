@@ -44,8 +44,7 @@ export const AnnounceHeader= () =>{
         </div>
         <div>
             <div className="logo-container">
-                <a href="/"
-                    onClick={(e)=>{e.preventDefault; navigate("/")}}>
+                <a onClick={(e)=>{e.preventDefault; navigate("/")}}>
                     <img src={logo} height="100px"/>
                 </a>
                 <form onSubmit={handleSubmit} className="search-bar">
