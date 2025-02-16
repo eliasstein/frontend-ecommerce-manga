@@ -1,10 +1,6 @@
 import "../static/css/manga.css"
-import image from "../static/images/manga/boyabyss-1.webp"
-export const MangaComponent= () =>{
+export const MangaComponent= ({title,price,url}) =>{
 
-    const url=image
-    const title="Shonen no abyss 1"
-    const price="$7.900"
 return(
 <div className="manga-container">
     <img src={url}></img>

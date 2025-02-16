@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import tiktok from "../static/images/tiktok.svg"
 import pinterest from "../static/images/pinterest.svg"
 import logo from "../static/images/logo.png"
@@ -6,6 +9,16 @@ import banner from "../static/images/banner/banner.jpg"
 import {MangaComponent} from "./manga_element.jsx"
 
 export const AnnounceHeader= () =>{
+
+    const navigate=useNavigate();
+    const [name, setName] = useState("");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(`The name you entered was: ${name}`)
+        navigate(`/search?${name}`)
+      }
+
     return (
     <header>
         <div className="background-header">
@@ -31,15 +44,19 @@ export const AnnounceHeader= () =>{
         </div>
         <div>
             <div className="logo-container">
-                <img src={logo} height="100px"/>
-                <form className="search-bar">
-                    <input></input>
+                <a href="/"
+                    onClick={(e)=>{e.preventDefault; navigate("/")}}>
+                    <img src={logo} height="100px"/>
+                </a>
+                <form onSubmit={handleSubmit} className="search-bar">
+                    <input type="text" value={name} onChange={e=>setName(e.target.value)}></input>
                     <button><i className="uil uil-search-alt"></i></button>
                 </form>
-                <span>
+                <span className="user-options">
                     <a><i className="uil uil-user-circle"></i></a>
                     <a><i className="uil uil-heart-alt"></i></a>
-                    <a><i className="uil uil-shopping-cart"></i></a>
+                    <a><i className="uil uil-shopping-cart"></i>
+                    <span className="cart-counter">0</span></a>
                 </span>
             </div>
         </div>
@@ -91,11 +108,11 @@ export const LandingBody= () =>{
                     <div>
                         <h1>Novedades</h1>
                         <div className="new-mangas-container">
-                        <MangaComponent></MangaComponent>
-                        <MangaComponent></MangaComponent>
-                        <MangaComponent></MangaComponent>
-                        <MangaComponent></MangaComponent>
-                        <MangaComponent></MangaComponent>
+                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
+                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
+                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
+                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
+                        <MangaComponent title="Shonen no abyss" price="$7.900" url="./manga/boyabyss-1.webp"></MangaComponent>
 
                         </div>
                     </div>

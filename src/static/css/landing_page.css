@@ -109,6 +109,12 @@ p,h1,a{
 .nav-category{
   color: black; /* O cualquier color que desees */
   text-decoration: none; /* Elimina el subrayado */
+  padding: 10px;
+
+}
+.nav-category:hover{
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
 }
 .category-container{
   visibility: hidden;
@@ -138,6 +144,22 @@ li:hover .category-container{
  display: flex; 
  flex-wrap: wrap;
  gap: 20px;  
+ justify-content: center;
+}
+.user-options{
+  display: flex;
+  gap: 8px;
+}
+.cart-counter{
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 10px;
+  text-align: center;
+  font-weight: bold;
+  min-height: 10px;
+  min-width: 15px;
+  background-color: red;
+  color:whitesmoke;
 }
 
 
@@ -158,5 +180,8 @@ li:hover .category-container{
   }
   .search-bar input{
     width: 200px;
+  }
+  .user-options i{
+    font-size: 40px;
   }
 }

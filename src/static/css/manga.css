@@ -8,6 +8,7 @@
     border-radius: 20px;
     transition: all 1s;
     overflow: hidden;
+    text-align: center;
 
 }
 .manga-container:hover{
@@ -25,6 +26,12 @@ border: 2px solid rgb(240, 240, 240);
 .cart-button{
     border-radius: 5px;
     background-color: lightblue;
+    border: 1px solid;
+}
+.cart-button:hover{
+    border-radius: 5px;
+    background-color: rgb(184, 230, 245);
+    border: 1px solid;
 }
 /*/////////////////////////////////RESPONSIVE//////////////////////////////////////*/
 @media screen and (max-width:710px){  

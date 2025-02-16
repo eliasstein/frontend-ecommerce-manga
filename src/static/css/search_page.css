@@ -1,0 +1,14 @@
+.filters{
+    margin: 50px;
+}
+.search-manga-container{
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.search-navigator{
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
