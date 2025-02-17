@@ -17,10 +17,16 @@ border: 2px solid rgb(240, 240, 240);
 .manga-container:hover img{
     transform: scale(1.1);
 }
+.manga-image-container{
+    width:200px;
+    height:240px;
+    margin-bottom: 20px;
+}
 
 .manga-container img{
     margin: 0 auto 0 auto;
     width: 80%;
+    height: 100%;
     transition: all 0.5s;
 }
 .cart-button{
