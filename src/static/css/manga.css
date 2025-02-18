@@ -39,6 +39,10 @@ border: 2px solid rgb(240, 240, 240);
     background-color: rgb(184, 230, 245);
     border: 1px solid;
 }
+.manga-title{
+    height: 40px;
+    overflow: hidden;
+}
 
 /*/////////////////////////////////RESPONSIVE//////////////////////////////////////*/
 @media screen and (max-width:710px){  
