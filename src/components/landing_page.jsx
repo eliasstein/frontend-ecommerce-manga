@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useSearchParams} from 'react-router-dom';
 
 import tiktok from "../static/images/tiktok.svg"
 import pinterest from "../static/images/pinterest.svg"
@@ -14,13 +14,24 @@ export const AnnounceHeader= () =>{
 
     const navigate=useNavigate();
     const [name, setName] = useState("");
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const title="";
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`The name you entered was: ${name}`)
-        navigate(`/search?name=${name}`)
+        navigate(`/search?name=${name}
+${searchParams.get("type") != null ? "&type="+searchParams.get("type") : ""}
+${searchParams.get("stock") != null ? "&stock=true" : ""}
+${searchParams.get("adult") != null ? "&adult=true" : ""}`)
+    // event.target.elements.searchInput.value=name;
       }
+
+    useEffect(()=>{
+        const search=document.querySelector(".search-bar input")
+        if (search.value!=undefined)
+            search.value=searchParams.get("name")
+    },[]);
 
     return (
     <header>
@@ -51,7 +62,7 @@ export const AnnounceHeader= () =>{
                     <img src={logo} height="100px"/>
                 </a>
                 <form onSubmit={handleSubmit} className="search-bar">
-                    <input type="text" onChange={e=>setName(e.target.value)}/>
+                    <input id="searchInput" type="text" onChange={e=>setName(e.target.value)}/>
                     <button><i className="uil uil-search-alt"></i></button>
                 </form>
                 <span className="user-options">
@@ -123,11 +134,11 @@ export const LandingBody= () =>{
                             if(object!=null){
                                 // console.log(object)
                                 return <MangaComponent 
-                                key={object.id} 
+                                key={object.id}
+                                id={object.id}
                                 title={object.name} 
                                 price={"$"+object.price} 
-                                url={object.image} 
-                                onClick={()=>console.log(object.id)}/>                            
+                                url={object.image} />                            
                             }
                             return null; // Evita que `map()` devuelva `undefined`
                         })}
