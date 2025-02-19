@@ -40,8 +40,8 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
                 <a><i className="uil uil-facebook"></i></a>
                 <a><i className="uil uil-instagram"></i></a>
                 <a><i className="uil uil-whatsapp"></i></a>
-                <a><img src={tiktok} width="24px" style={{"filter":"invert(1)"}}/></a>
-                <a><img src={pinterest} width="24px" style={{"filter":"invert(1)"}}/></a>
+                <a><img src={tiktok} width="24px" style={{"filter":"invert(1)"}} alt='tiktok'/></a>
+                <a><img src={pinterest} width="24px" style={{"filter":"invert(1)"}} alt='pinterest'/></a>
 
             </div>
             <div className="announce">
@@ -59,7 +59,7 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
         <div>
             <div className="logo-container">
                 <a onClick={()=>navigate("/")}>
-                    <img src={logo} height="100px"/>
+                    <img src={logo} height="100px" alt='mahou-manga'/>
                 </a>
                 <form onSubmit={handleSubmit} className="search-bar">
                     <input id="searchInput" type="text" onChange={e=>setName(e.target.value)}/>
@@ -121,7 +121,7 @@ export const LandingBody= () =>{
 
     return (
             <main>
-                <img src={banner} style={{"width":"100%"}}/>
+                <img src={banner} style={{"width":"100%"}} alt='banner'/>
                 <div className="body-container">
                     <div>
                         <h1>Mahou Manga - Especialistas en libros, mangas y cómics</h1>

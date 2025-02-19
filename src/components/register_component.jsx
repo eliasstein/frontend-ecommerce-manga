@@ -5,7 +5,7 @@ export const RegisterComponent = () =>{
     <main>
         <div className="anime-bg-image-container">
             <h1>Unirse a mahou manga</h1>
-            <img src={animebg}></img>
+            <img src={animebg} alt="banner"></img>
         </div>
         <div className="register-form">
         <form>

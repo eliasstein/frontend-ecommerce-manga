@@ -38,7 +38,7 @@ export const ProductBody = () => {
         <main>
             <div className="product-container">   {/*Float para separa imagen de portada*/}
                 <div className="product-image-container"> {/*Imagen de portada*/}
-                    <img src={data.image} alt={data.title} />
+                    <img src={data.image} alt={data.title}/>
                 </div>
                 <div className="information-container">   {/*Contenedor de texto*/}
                     <h1 className="information-container-title">{data.title}</h1>
