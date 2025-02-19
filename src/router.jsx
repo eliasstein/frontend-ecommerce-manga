@@ -2,6 +2,7 @@ import {Routes, Route, BrowserRouter, Navigate} from 'react-router-dom'
 import { Inicio } from './pages/inicio'
 import { Search } from './pages/search'
 import { Product } from './pages/product'
+import { Register } from './pages/register'
 
 export const AppRouter =()=>{
     return (
@@ -10,6 +11,7 @@ export const AppRouter =()=>{
                 <Route path="/" element={<Inicio/>}/>
                 <Route path="/search" element={<Search/>}/>
                 <Route path="/product" element={<Product/>}/>
+                <Route path="/user/register" element={<Register/>}/>
                 <Route path="/*" element={<Navigate to="/"/>}/>
             </Routes>
         </BrowserRouter>

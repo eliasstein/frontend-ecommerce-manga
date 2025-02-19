@@ -1,0 +1,46 @@
+.register-form{
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    /* margin: auto; */
+}
+.anime-bg-image-container{
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anime-bg-image-container h1{
+    position:absolute;
+    z-index: 1;
+    color: rgb(0, 0, 0);
+    background-color: lightblue;
+    padding: 5px;
+    border-radius: 10px;
+}
+.anime-bg-image-container img{
+    width: 100%;
+    filter:blur(2px)
+}
+
+.register-form input{
+    border-radius: 5px;
+    width: 400px;
+}
+.register-form p{
+    margin-bottom: 5px;
+}
+.register-form-send-button{
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: lightblue;
+}
+form a:hover{
+    color: blue;
+}
+@media screen and (max-width:500px){  
+    .register-form input{
+        width: 200px;
+    }
+}

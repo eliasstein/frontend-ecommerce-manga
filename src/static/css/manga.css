@@ -9,7 +9,7 @@
     transition: all 1s;
     overflow: hidden;
     text-align: center;
-
+    padding-bottom: 10px;
 }
 .manga-container:hover{
 border: 2px solid rgb(240, 240, 240);
@@ -42,6 +42,9 @@ border: 2px solid rgb(240, 240, 240);
 .manga-title{
     height: 40px;
     overflow: hidden;
+}
+.manga-title-price p{
+    margin:5px 0
 }
 
 /*/////////////////////////////////RESPONSIVE//////////////////////////////////////*/

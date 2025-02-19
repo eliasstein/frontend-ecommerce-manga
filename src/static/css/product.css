@@ -4,19 +4,55 @@
 }
 
 .product-image-container{
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
     width: 50%;
-    height: 75%;
+    height: 70%;
+    min-width: 200px;
 }
 .product-image-container img{
-    width: 100%;
+    width: 70%;
     height: 100%;
+    margin: auto;
 }
 .information-container{
+    width: 40%;
     display: flex;
     /* justify-content: center; */
     align-items: center;
     flex-direction: column;
     flex-grow: 1;
+}
+
+.information-container-title{
+    margin:0;
+}
+.information-container-price{
+    /* color:#3ba6c4 */
+}
+.information-container-description{
+    flex-direction: column;
+    text-align: center;
+    margin: 0 50px;
+    /* height: 200px;
+    overflow: hidden; */
+}
+
+.information-container-title{
+    text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Para Firefox */
+input[type="number"] {
+  appearance: none;
+  -moz-appearance: textfield;
 }
 
 /*/////////////////////////////////RESPONSIVE//////////////////////////////////////*/
@@ -28,5 +64,8 @@
     .product-container div{
         display: flex;
         margin:auto;
+    }
+    .information-container{
+    width: 90%;
     }
 }

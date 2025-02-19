@@ -66,7 +66,7 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
                     <button><i className="uil uil-search-alt"></i></button>
                 </form>
                 <span className="user-options">
-                    <a><i className="uil uil-user-circle"></i></a>
+                    <a href='/user/register'><i className="uil uil-user-circle"></i></a>
                     <a><i className="uil uil-heart-alt"></i></a>
                     <a><i className="uil uil-shopping-cart"></i>
                     <span className="cart-counter">0</span></a>

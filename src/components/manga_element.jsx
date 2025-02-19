@@ -14,7 +14,7 @@ export const MangaComponent= ({id,title,price,url}) =>{
 return(
 <div className="manga-container">
     <div className="manga-image-container">
-    <img src={url} onClick={()=>navigate("/product?id="+id)}></img>
+    <img src={url} onClick={()=>navigate("/product?id="+id)} alt={title}></img>
     </div>
     <div className="manga-title-price">
         <p className="manga-title">{shortTitle}</p>
