@@ -117,6 +117,7 @@ p,h1,a{
   border-radius: 10px;
 }
 .category-container{
+  z-index: 2;
   visibility: hidden;
   position:absolute;
   padding: 5px;
