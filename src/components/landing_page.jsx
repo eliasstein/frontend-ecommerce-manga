@@ -58,7 +58,7 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
         </div>
         <div>
             <div className="logo-container">
-                <a onClick={(e)=>{e.preventDefault; navigate("/")}}>
+                <a onClick={()=>navigate("/")}>
                     <img src={logo} height="100px"/>
                 </a>
                 <form onSubmit={handleSubmit} className="search-bar">
@@ -66,7 +66,9 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
                     <button><i className="uil uil-search-alt"></i></button>
                 </form>
                 <span className="user-options">
-                    <a href='/user/register'><i className="uil uil-user-circle"></i></a>
+                    <a onClick={()=>navigate("/user/register")}>
+                        <i className="uil uil-user-circle"/>
+                        </a>
                     <a><i className="uil uil-heart-alt"></i></a>
                     <a><i className="uil uil-shopping-cart"></i>
                     <span className="cart-counter">0</span></a>

@@ -13,11 +13,11 @@ export const RegisterComponent = () =>{
                 <p>Nombre de usuario</p>
                 <input required></input>
                 <p>Email</p>
-                <input type="email" required></input>
+                <input type="email" required autoComplete="on"></input>
                 <p>Contraseña</p>
-                <input type="password" required></input>
+                <input type="password" required autoComplete="off"></input>
                 <p>Confirmar Contraseña</p>
-                <input type="password" required></input>
+                <input type="password" required autoComplete="off"></input>
             </div>
             <button className="register-form-send-button">Enviar</button>
             <br/><br/>
