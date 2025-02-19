@@ -99,6 +99,11 @@ p,h1,a{
   border: 0;
   background-color: whitesmoke
 }
+
+.user-options a{
+  color: black;
+}
+
 .nav-categories ul{
   display: flex;
   justify-content: center;
@@ -185,4 +190,22 @@ li:hover .category-container{
   .user-options i{
     font-size: 40px;
   }
+}
+
+
+/*////////////////////TEST//////////////////////////*/
+
+.test{
+  z-index: 2;
+  /* visibility: hidden; */
+  position:absolute;
+  padding: 5px;
+  margin-top:10px;
+  background-color: rgb(231, 231, 231);
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }

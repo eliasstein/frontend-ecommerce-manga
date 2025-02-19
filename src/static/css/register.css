@@ -23,7 +23,9 @@
     width: 100%;
     filter:blur(2px)
 }
-
+.register-form form{
+    margin-bottom: 50px;
+}
 .register-form input{
     border-radius: 5px;
     width: 400px;
@@ -39,6 +41,12 @@
 form a:hover{
     color: blue;
 }
+#error-msg{
+    background-color: red;
+    color: whitesmoke;
+    font-size: 18px;
+}
+
 @media screen and (max-width:500px){  
     .register-form input{
         width: 200px;

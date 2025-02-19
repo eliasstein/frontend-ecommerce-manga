@@ -77,6 +77,7 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}
                             title={object.name}
                             price={"$" + object.price}
                             url={object.image}
+                            quantity={object.quantity}
                         />
                     ))
                 )}

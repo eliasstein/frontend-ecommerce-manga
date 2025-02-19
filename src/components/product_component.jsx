@@ -13,7 +13,7 @@ export const ProductBody = () => {
         image: null,
         quantity: null,
     });
-    const [quantity, setQuantity] = useState(1)
+    const [quantity, setQuantity] = useState(0)
 
     useEffect(() => {     //use effect hace la peticion cuando se monta el componente
         fetch(`${API_URL}/api/v1/books/getById?id=${searchParams.get("id")}`)
@@ -38,7 +38,7 @@ export const ProductBody = () => {
         <main>
             <div className="product-container">   {/*Float para separa imagen de portada*/}
                 <div className="product-image-container"> {/*Imagen de portada*/}
-                    <img src={data.image} alt={data.title}/>
+                    <img src={data.image} alt={data.title} />
                 </div>
                 <div className="information-container">   {/*Contenedor de texto*/}
                     <h1 className="information-container-title">{data.title}</h1>
