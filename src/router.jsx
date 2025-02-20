@@ -3,6 +3,8 @@ import { Inicio } from './pages/inicio'
 import { Search } from './pages/search'
 import { Product } from './pages/product'
 import { Register } from './pages/register'
+import { Login } from "./pages/login"
+import { Cart } from './pages/cart'
 
 export const AppRouter =()=>{
     return (
@@ -12,6 +14,9 @@ export const AppRouter =()=>{
                 <Route path="/search" element={<Search/>}/>
                 <Route path="/product" element={<Product/>}/>
                 <Route path="/user/register" element={<Register/>}/>
+                <Route path="/user/login" element={<Login/>}/>
+                <Route path="/cart" element={<Cart/>}/>
+
                 <Route path="/*" element={<Navigate to="/"/>}/>
             </Routes>
         </BrowserRouter>

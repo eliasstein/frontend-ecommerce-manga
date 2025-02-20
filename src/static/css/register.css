@@ -24,7 +24,6 @@
     filter:blur(2px)
 }
 .register-form form{
-    margin-bottom: 50px;
 }
 .register-form input{
     border-radius: 5px;
@@ -38,13 +37,20 @@
     border-radius: 10px;
     background-color: lightblue;
 }
-form a:hover{
-    color: blue;
-}
+
 #error-msg{
     background-color: red;
     color: whitesmoke;
     font-size: 18px;
+}
+.register-errors{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    margin-bottom: 50px;
+}
+.register-errors a:hover{
+    color: blue;    
 }
 
 @media screen and (max-width:500px){  

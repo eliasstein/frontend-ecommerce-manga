@@ -81,7 +81,9 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
                                     <Link to="/user/register">
                                         <i className="uil uil-user-plus"></i>Registrarse
                                     </Link>
-                                    <a>Ver Carrito</a>
+                                    <Link to="/cart">
+                                        <i className="uil uil-shopping-bag"></i>Ver carrito
+                                    </Link>
                                 </div>
                             </li>
                         </ul>
@@ -89,7 +91,7 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
                         <Link to="">
                             <i className="uil uil-heart-alt" />
                         </Link>
-                        <Link to="">
+                        <Link to="/cart">
                             <i className="uil uil-shopping-cart" />
                             <span className="cart-counter">0</span>
                         </Link>
