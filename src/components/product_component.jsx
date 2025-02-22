@@ -43,7 +43,7 @@ export const ProductBody = () => {
             if (index !== -1)  //si existe 
                 cartJson[index].quantity = quantity;  //modificamos la cantidad del id actual
             else   //si no existe el id en el carrito
-                cartJson.push({ "id": searchParams.get("id"), "quantity": quantity })    //añadimos el id y la cantidad seleccionada al carrito
+                cartJson.push({ "id": parseInt(searchParams.get("id")), "quantity": quantity })    //añadimos el id y la cantidad seleccionada al carrito
             localStorage.setItem("cart", JSON.stringify(cartJson))
         }
         else {   //si no existe creamos el objeto cart en el local storage

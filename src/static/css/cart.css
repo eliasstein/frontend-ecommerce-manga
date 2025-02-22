@@ -1,0 +1,41 @@
+.cart-container{
+    display: flex;
+    margin: 0 50px;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.item-container{
+    border:1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    gap: 4%;
+}
+.item-title{
+    text-align: center;
+    width: 300px;
+}
+.price{
+    text-align: center;
+    width: 100px;
+}
+.item-container img{
+
+    width: 100px;
+    height: 120px;
+}
+.item-container p{
+    margin: 0
+}
+.item-container input[type="number"]{
+    width: 30px;
+}
+
+@media screen and (max-width:710px){  /*si se modifica el mensaje tambien se debe modificar el responsive*/
+    .item-container{
+        flex-direction: column;
+    }
+}

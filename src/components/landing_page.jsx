@@ -93,7 +93,9 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
                         </Link>
                         <Link to="/cart">
                             <i className="uil uil-shopping-cart" />
-                            <span className="cart-counter">0</span>
+                            <span className="cart-counter">{
+                            localStorage.getItem("cart")!=null?JSON.parse(localStorage.getItem("cart")).length:"0"
+                        }</span>
                         </Link>
                     </span>
                 </div>
