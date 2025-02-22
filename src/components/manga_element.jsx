@@ -10,6 +10,28 @@ export const MangaComponent = ({ id, title, price, url, quantity }) => {
     });
 
 
+
+    const addToCart = (e) => {
+        if (quantity<1)
+            return
+        const cart = localStorage.getItem("cart");        //Comprobamos si existe "cart" en el local storage
+        if (cart != null) {    //En el caso de que exista hacemos lo siguiente
+            const cartJson = JSON.parse(cart);    //creamos una variable que almacene el contenido del carrito
+            const index = cartJson.findIndex(item => item.id == id);  //buscamos el id actual en el carrito
+            if (index !== -1)  //si existe 
+                cartJson[index].quantity = cartJson[index].quantity;  //modificamos la cantidad del id actual
+            else   //si no existe el id en el carrito
+                cartJson.push({ "id": parseInt(id), "quantity": 1 })    //añadimos el id y la cantidad seleccionada al carrito
+            localStorage.setItem("cart", JSON.stringify(cartJson))
+        }
+        else {   //si no existe creamos el objeto cart en el local storage
+            localStorage.setItem("cart",
+                `[{"id":${id},"quantity":1}]`)
+        }
+    }
+
+
+
     return (
         <div className="manga-container">
             <div className="manga-image-container">
@@ -36,7 +58,9 @@ export const MangaComponent = ({ id, title, price, url, quantity }) => {
             <div className="manga-title-price">
                 <p className="manga-title">{shortTitle}</p>
                 <p>{price}</p>
-                <button className="cart-button"><i className="uil uil-shopping-cart"> </i>Añadir al carrito</button>
+                <button className="cart-button" onClick={addToCart}>
+                    <i className="uil uil-shopping-cart"/>Añadir al carrito
+                </button>
             </div>
         </div>
     );
