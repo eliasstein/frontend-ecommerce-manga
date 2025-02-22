@@ -21,7 +21,7 @@ export const CartComponent = () => {
                         "borderRadius":"10px",
                         "backgroundColor":"blue",
                         "color":"white"}}
-                        onClick={()=>localStorage.removeItem("cart")}>Completar pedido</button>
+                        onClick={()=>{localStorage.removeItem("cart");window.location.reload();}}>Completar pedido</button>
 
         </div>
     </main>
@@ -73,6 +73,10 @@ export const CartItemComponent = ({id,quantity}) =>{
                 cartJson.splice(index,1)  //modificamos la cantidad del id actual
             localStorage.setItem("cart", JSON.stringify(cartJson))
         }
+        console.log(localStorage.getItem("cart").length)
+
+        if(JSON.parse(localStorage.getItem("cart")).length==0)  //Comprobacion para no tener el carrito con un array vacio
+            localStorage.removeItem("cart")
         window.location.reload()
     }
 
