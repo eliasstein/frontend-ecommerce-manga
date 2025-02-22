@@ -164,7 +164,7 @@ export const LandingBody = () => {
                                     key={object.id}
                                     id={object.id}
                                     title={object.name}
-                                    price={"$" + object.price}
+                                    price={object.price}
                                     url={object.image}
                                     quantity={object.quantity} />
                             }

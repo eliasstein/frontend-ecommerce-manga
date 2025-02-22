@@ -25,7 +25,7 @@ export const ProductBody = () => {
                     ...prevData,
                     ["title"]: resp.name,
                     ["description"]: resp.description,
-                    ["price"]: "$" + resp.price,
+                    ["price"]: resp.price,
                     ["image"]: resp.image,
                     ["quantity"]: resp.quantity
                 }));
@@ -43,12 +43,11 @@ export const ProductBody = () => {
             if (index !== -1)  //si existe 
                 cartJson[index].quantity = quantity;  //modificamos la cantidad del id actual
             else   //si no existe el id en el carrito
-                cartJson.push({ "id": parseInt(searchParams.get("id")), "quantity": quantity })    //añadimos el id y la cantidad seleccionada al carrito
+                cartJson.push({ "id": parseInt(searchParams.get("id")), "quantity": quantity ,"title":data.title,"price":data.price,"image":data.image,"stock":data.quantity})    //añadimos el id y la cantidad seleccionada al carrito
             localStorage.setItem("cart", JSON.stringify(cartJson))
         }
         else {   //si no existe creamos el objeto cart en el local storage
-            localStorage.setItem("cart",
-                `[{"id":${searchParams.get("id")},"quantity":${quantity}}]`)
+            localStorage.setItem("cart",`[{"id":${searchParams.get("id")},"quantity":${quantity},"title":"${data.title}","price":${data.price},"image":"${data.image}","stock":${data.quantity}}]`)
         }
     }
 
@@ -60,7 +59,7 @@ export const ProductBody = () => {
                 </div>
                 <div className="information-container">   {/*Contenedor de texto*/}
                     <h1 className="information-container-title">{data.title}</h1>
-                    <h1 className="information-container-price">{data.price}</h1>
+                    <h1 className="information-container-price">{"$"+data.price}</h1>
                     <form onSubmit={addToCart}>
                         <input type="button" value="-" onClick={() => {
                             quantity > 1 ? setQuantity(prevQuant => prevQuant - 1) : setQuantity(prevQuant => prevQuant)

@@ -33,32 +33,26 @@ export const CartItemComponent = ({id,quantity}) =>{
         title: null,
         price: null,
         image: null,
-        quantity:null,
+        stock:null
     });
     const [q,setQ]=useState(quantity);
 
     useEffect(() => {     //use effect hace la peticion cuando se monta el componente
-        fetch(`${API_URL}/api/v1/books/getById?id=${id}`)
-            .then(res => res.json())
-            .then(resp => {
-                // setTitle(resp.name);
-                setData(prevData => ({
-                    ...prevData,
-                    ["title"]: resp.name,
-                    ["price"]: resp.price,
-                    ["image"]: resp.image,
-                    ["quantity"]: resp.quantity
-                }));
-            })
-            .catch(error => console.error("Error al obtener datos: ", error));
-        
-
         const cart = localStorage.getItem("cart");        //Comprobamos si existe "cart" en el local storage
         if (cart != null) {    //En el caso de que exista hacemos lo siguiente
             const cartJson = JSON.parse(cart);    //creamos una variable que almacene el contenido del carrito
             const index = cartJson.findIndex(item => item.id == id);  //buscamos el id actual en el carrito
-            if (index !== -1)  //si existe 
-            cartJson[index].quantity=q;
+            if (index !== -1){
+                setData(prevData => ({
+                    ...prevData,
+                    ["title"]: cartJson[index].title,
+                    ["price"]: cartJson[index].price,
+                    ["image"]: cartJson[index].image,
+                    ["stock"]:cartJson[index].stock
+                }));
+                cartJson[index].quantity=q;
+
+            }
             localStorage.setItem("cart", JSON.stringify(cartJson))
         }
         
@@ -93,7 +87,7 @@ export const CartItemComponent = ({id,quantity}) =>{
             <div style={{"display":"flex"}}>
                 <input type="button" defaultValue="-" onClick={()=>q > 1 ?setQ(q-1):setQ(q)}/>
                 <input type="number" value={q} readOnly/>
-                <input type="button" defaultValue="+" onClick={()=>q < data.quantity ?setQ(q+1):setQ(q)}/>
+                <input type="button" defaultValue="+" onClick={()=>q < data.stock ?setQ(q+1):setQ(q)}/>
             </div>
             <div className="price">
                 <p>{`${data.price!=null?"$"+data.price*q:"Cargando..."}`}</p>
