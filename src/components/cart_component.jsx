@@ -39,22 +39,25 @@ export const CartComponent = () => {
                                 quantity={item.quantity} 
                                 updateQuantity={updateQuantity} 
                             />
-                        )) : <h1>Carrito vacío</h1>
+                        )) : <h1 style={{textAlign:"center"}}>Carrito vacío</h1>
                 }
-                <div style={{ display: "flex", justifyContent: "end" }}>
-                    <p>TOTAL: ${total}</p>
-                </div>
-                <button style={{
-                    height: "40px",
-                    borderRadius: "10px",
-                    backgroundColor: "blue",
-                    color: "white"
-                }} onClick={() => {
-                    localStorage.removeItem("cart");
-                    setCart([]);
-                }}>
-                    Completar pedido
-                </button>
+                {
+                    cart.length>0?
+                    <>
+                        <div className="total-container">
+                            <p>
+                                <strong style={{color:"red"}}>TOTAL: </strong>
+                                {"$"+total}
+                            </p>
+                        </div>
+                        <button className="checkout-button" onClick={() => {
+                        localStorage.removeItem("cart");
+                        setCart([]);
+                        }}>
+                        Completar pedido
+                        </button>
+                    </>:""
+                }
             </div>
         </main>
     );
@@ -101,7 +104,11 @@ export const CartItemComponent = ({ id, quantity, updateQuantity }) => {
 
     return (
         <div className="item-container">
-            <img alt="Cargando..." src={data.image}></img>
+            <Link to={"/product?id="+id}>
+                <div className="image-container">
+                    <img alt="Cargando..." src={data.image}/>
+                </div>
+            </Link>
             <div className="item-title">
                 <p>{data.title || "Cargando..."}</p>
             </div>

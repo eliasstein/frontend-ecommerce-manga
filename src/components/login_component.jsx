@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "../static/css/register.css"
 import animebg from "/anime.jpg"
+import { Link } from "react-router-dom"
 
 
 export const LoginComponent = () =>{
@@ -31,7 +32,7 @@ export const LoginComponent = () =>{
         </div>
         <div className="register-errors">
             <p id="error-msg" style={{"display":error}}>Error. Asegurate de haber colocado los datos correctamente </p>
-            <a>¿No tienes una cuenta? Entra aquí</a>
+            <Link to="/user/register">¿No tienes una cuenta? Entra aquí</Link>
         </div>
 
     </main>
