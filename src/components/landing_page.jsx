@@ -15,7 +15,6 @@ export const AnnounceHeader = () => {
     const navigate = useNavigate();
     const [name, setName] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
-
     const title = "";
 
     const handleSubmit = (event) => {

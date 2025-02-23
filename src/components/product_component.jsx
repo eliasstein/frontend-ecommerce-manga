@@ -58,8 +58,8 @@ export const ProductBody = () => {
                     <img src={data.image} alt={data.title} />
                 </div>
                 <div className="information-container">   {/*Contenedor de texto*/}
-                    <h1 className="information-container-title">{data.title}</h1>
-                    <h1 className="information-container-price">{"$"+data.price}</h1>
+                    <h1 className="information-container-title">{data.title!=null?data.title:"Cargando..."}</h1>
+                    <h1 className="information-container-price">{data.price!=null?"$"+data.price:""}</h1>
                     <form onSubmit={addToCart}>
                         <input type="button" value="-" onClick={() => {
                             quantity > 1 ? setQuantity(prevQuant => prevQuant - 1) : setQuantity(prevQuant => prevQuant)
