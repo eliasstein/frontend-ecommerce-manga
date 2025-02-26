@@ -23,9 +23,8 @@
     width: 100%;
     filter:blur(2px)
 }
-.register-form form{
-}
-.register-form input{
+
+.register-form div input{
     border-radius: 5px;
     width: 400px;
 }

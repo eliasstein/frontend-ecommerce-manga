@@ -3,14 +3,57 @@ import "../static/css/register.css"
 import animebg from "/anime_2.jpg"
 import { Link } from "react-router-dom"
 
+const API_URL = import.meta.env.VITE_API_URL
 
 export const RegisterComponent = () =>{
     const [error,setError]=useState("none")
+    const [errorText,setErrorText]=useState("")
 
 
     const handleForm = (e) =>{
         e.preventDefault();
-        setError("block")
+        const username = e.target.username.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const password2 = e.target.password2.value;
+
+        if (password!=password2){
+            setError("block")
+            setErrorText("Error. Ambas contraseñas deben ser identicas")
+            return
+        }
+            
+
+        console.log(username,email,password,password2)
+
+        fetch(API_URL+"/api/v1/auth/register",{
+            method:"POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                email: email,
+                password: password
+            })
+        })
+        .then(res=>{
+            if(res.ok)
+                return res
+            else if (res.status===400)
+                return Promise.reject({status: res.status, message: "El correo ya se encuentra registrado"})
+            })
+        .then(res=>console.log("perfe"))
+        .catch(e=>{
+            setError("block")
+            setErrorText("Ha ocurrido un error, verifique que los datos sean correctos")
+            if (e.status==400){
+                setError("block")
+                setErrorText(e.message)
+            }
+
+        })
+        
     }
 
     return (
@@ -23,19 +66,19 @@ export const RegisterComponent = () =>{
         <form onSubmit={handleForm}>
             <div>
                 <p>Nombre de usuario</p>
-                <input required></input>
+                <input required id="username"></input>
                 <p>Email</p>
-                <input type="email" required autoComplete="on"></input>
+                <input type="email" id="email" required autoComplete="on"></input>
                 <p>Contraseña</p>
-                <input type="password" required autoComplete="off"></input>
+                <input type="password" id="password" required autoComplete="off"></input>
                 <p>Confirmar Contraseña</p>
-                <input type="password" required autoComplete="off"></input>
+                <input type="password" id="password2" required autoComplete="off"></input>
             </div>
             <button className="register-form-send-button">Registrarse</button>
         </form>
         </div>
         <div className="register-errors">
-            <p id="error-msg" style={{"display":error}}>Error. Asegurate de haber colocado los datos correctamente </p>
+            <p id="error-msg" style={{"display":error}}>{errorText}</p>
             <Link to="/user/login">¿Ya tienes cuenta? Entra aquí</Link>
         </div>
 

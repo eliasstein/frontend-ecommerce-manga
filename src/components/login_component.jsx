@@ -27,7 +27,11 @@ export const LoginComponent = () =>{
                 <p>Contraseña</p>
                 <input type="password" required autoComplete="off"></input>
             </div>
-            <button className="register-form-send-button">Registrarse</button>
+            <input type="checkbox" id="remember"/>
+            <label htmlFor="remember">Recordar contraseña</label>
+            <div>
+                <button className="register-form-send-button">Ingresar</button>
+            </div>
         </form>
         </div>
         <div className="register-errors">
