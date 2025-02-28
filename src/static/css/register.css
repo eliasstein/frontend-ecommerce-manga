@@ -53,7 +53,7 @@
 }
 
 @media screen and (max-width:500px){  
-    .register-form input{
+    .register-form div input{
         width: 200px;
     }
 }

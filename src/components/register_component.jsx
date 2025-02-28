@@ -1,13 +1,15 @@
 import { useState } from "react"
 import "../static/css/register.css"
 import animebg from "/anime_2.jpg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const API_URL = import.meta.env.VITE_API_URL
 
 export const RegisterComponent = () =>{
     const [error,setError]=useState("none")
     const [errorText,setErrorText]=useState("")
+    const navigate = useNavigate();
+
 
 
     const handleForm = (e) =>{
@@ -23,9 +25,6 @@ export const RegisterComponent = () =>{
             return
         }
             
-
-        console.log(username,email,password,password2)
-
         fetch(API_URL+"/api/v1/auth/register",{
             method:"POST",
             headers: {
@@ -43,7 +42,10 @@ export const RegisterComponent = () =>{
             else if (res.status===400)
                 return Promise.reject({status: res.status, message: "El correo ya se encuentra registrado"})
             })
-        .then(res=>console.log("perfe"))
+        .then(
+            //Si esto es correcto deberia mostrar un modal
+            navigate("/")
+        )
         .catch(e=>{
             setError("block")
             setErrorText("Ha ocurrido un error, verifique que los datos sean correctos")
