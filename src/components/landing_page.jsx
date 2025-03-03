@@ -7,6 +7,8 @@ import logo from "../static/images/logo.png"
 import banner from "../static/images/banner/banner.jpg"
 
 import { MangaComponent } from "./manga_element.jsx"
+import Modal from './modals/add_to_cart_modal.jsx';
+
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -15,7 +17,6 @@ export const AnnounceHeader = () => {
     const navigate = useNavigate();
     const [name, setName] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
-    const title = "";
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -134,6 +135,7 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
 
 
 export const LandingBody = () => {
+    const [isModalOpen, setIsModalOpen] = useState("");
 
     const [book, setBook] = useState(null);
     useEffect(() => {     //use effect hace la peticion cuando se monta el componente
@@ -155,7 +157,7 @@ export const LandingBody = () => {
                 </div>
                 <div>
                     <h1>Novedades</h1>
-                    <div className="new-mangas-container">
+                    <div className="new-mangas-container" onClick={()=>setIsModalOpen(!isModalOpen)}>
                         {book?.map(object => {
                             if (object != null) {
                                 // console.log(object)
@@ -172,6 +174,9 @@ export const LandingBody = () => {
 
                     </div>
                 </div>
+            </div>
+            <div>
+                <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(False)}/>
             </div>
         </main>
     )
