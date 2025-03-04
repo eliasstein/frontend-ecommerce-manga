@@ -2,7 +2,7 @@ import "../static/css/manga.css"
 import { Link} from 'react-router-dom';
 import { useEffect, useState } from "react";
 
-export const MangaComponent = ({ id, title, price, url, quantity }) => {
+export const MangaComponent = ({ id, title, price, url, quantity, modal}) => {
     const [shortTitle, setShortTitle] = useState(title)
 
     useEffect(() => {
@@ -14,6 +14,7 @@ export const MangaComponent = ({ id, title, price, url, quantity }) => {
     const addToCart = (e) => {
         if (quantity<1)
             return
+        modal(true);
         const cart = localStorage.getItem("cart");        //Comprobamos si existe "cart" en el local storage
         if (cart != null) {    //En el caso de que exista hacemos lo siguiente
             const cartJson = JSON.parse(cart);    //creamos una variable que almacene el contenido del carrito

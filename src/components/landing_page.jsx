@@ -157,7 +157,7 @@ export const LandingBody = () => {
                 </div>
                 <div>
                     <h1>Novedades</h1>
-                    <div className="new-mangas-container" onClick={()=>setIsModalOpen(!isModalOpen)}>
+                    <div className="new-mangas-container">
                         {book?.map(object => {
                             if (object != null) {
                                 // console.log(object)
@@ -167,7 +167,8 @@ export const LandingBody = () => {
                                     title={object.name}
                                     price={object.price}
                                     url={object.image}
-                                    quantity={object.quantity} />
+                                    quantity={object.quantity}
+                                    modal={setIsModalOpen} />
                             }
                             return null; // Evita que `map()` devuelva `undefined`
                         })}
@@ -175,18 +176,15 @@ export const LandingBody = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(False)}/>
-            </div>
+            <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(!isModalOpen)}/>
         </main>
     )
 }
 
-export const LandingDescription = () => {
+export const LandingFooter = () => {
     return (
 
-        <div>
-
-        </div>
+        <footer>
+        </footer>
     )
 }
