@@ -7,11 +7,9 @@ import logo from "../static/images/logo.png"
 import banner from "../static/images/banner/banner.jpg"
 
 import { MangaComponent } from "./manga_element.jsx"
+import { API_URL } from "../static/js/const";
 
-
-const API_URL = import.meta.env.VITE_API_URL
-
-export const AnnounceHeader = () => {
+export const AnnounceHeader = ({isLogged}) => {
 
     const navigate = useNavigate();
     const [name, setName] = useState("");
@@ -65,11 +63,9 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
                         <button><i className="uil uil-search-alt"></i></button>
                     </form>
                     <span className="user-options">
-                        {/* <Link to="/user/register">
-                        <i className="uil uil-user-circle"/>
-                    </Link> */}
                         <ul style={{ "margin": 0 }}>
                             <li>
+                                {!isLogged?<>
                                 <a>
                                     <i className="uil uil-user-circle" />
                                 </a>
@@ -84,6 +80,11 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
                                         <i className="uil uil-shopping-bag"></i>Ver carrito
                                     </Link>
                                 </div>
+                                </>:<> 
+                                <Link to="/user/profile">
+                                    <i className="uil uil-user-circle" />
+                                </Link></>
+                                }
                             </li>
                         </ul>
 

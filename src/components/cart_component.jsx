@@ -2,8 +2,7 @@ import "../static/css/cart.css"
 import photo from "/anime.jpg"
 import { Link} from 'react-router-dom';
 import { useEffect, useState } from "react";
-
-const API_URL = import.meta.env.VITE_API_URL
+import { API_URL } from "../static/js/const";
 
 export const CartComponent = () => {
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);

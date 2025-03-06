@@ -2,8 +2,7 @@ import "../static/css/product.css"
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Modal from './modals/add_to_cart_modal.jsx';
-
-const API_URL = import.meta.env.VITE_API_URL
+import { API_URL } from "../static/js/const";
 
 export const ProductBody = () => {
     const [searchParams, setSearchParams] = useSearchParams();

@@ -2,12 +2,12 @@ import { useState } from "react"
 import "../static/css/register.css"
 import animebg from "/anime_2.jpg"
 import { Link, useNavigate } from "react-router-dom"
-
-const API_URL = import.meta.env.VITE_API_URL
+import { API_URL } from "../static/js/const";
 
 export const RegisterComponent = () =>{
     const [error,setError]=useState("none")
     const [errorText,setErrorText]=useState("")
+
     const navigate = useNavigate();
 
 
@@ -18,7 +18,7 @@ export const RegisterComponent = () =>{
         const email = e.target.email.value;
         const password = e.target.password.value;
         const password2 = e.target.password2.value;
-
+        
         if (password!=password2){
             setError("block")
             setErrorText("Error. Ambas contraseñas deben ser identicas")
@@ -83,7 +83,6 @@ export const RegisterComponent = () =>{
             <p id="error-msg" style={{"display":error}}>{errorText}</p>
             <Link to="/user/login">¿Ya tienes cuenta? Entra aquí</Link>
         </div>
-
     </main>
     );
 }

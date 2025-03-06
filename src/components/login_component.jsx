@@ -1,12 +1,12 @@
 import { useState } from "react"
 import "../static/css/register.css"
 import animebg from "/anime.jpg"
-import { Link } from "react-router-dom"
-
-const API_URL = import.meta.env.VITE_API_URL
+import { Link, useNavigate } from "react-router-dom"
+import { API_URL } from "../static/js/const";
 
 export const LoginComponent = () =>{
     const [error,setError]=useState("none")
+    const navigate = useNavigate();
 
 
     const handleForm = (e) =>{
@@ -37,6 +37,7 @@ export const LoginComponent = () =>{
             document.cookie=resp["access_token"];
             if (resp["refresh_token"]!=undefined)
                 document.cookie=resp["refresh_token"];
+            navigate("/");
         }
         )        
     }

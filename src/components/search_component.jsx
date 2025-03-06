@@ -2,8 +2,7 @@ import "../static/css/search_page.css";
 import { MangaComponent } from "./manga_element";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-const API_URL = import.meta.env.VITE_API_URL
+import { API_URL } from "../static/js/const";
 
 export const SearchBody = () => {
     const [book, setBook] = useState(null);

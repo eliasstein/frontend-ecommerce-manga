@@ -1,12 +1,12 @@
-import { LandingBody, AnnounceHeader, LandingFooter } from "../components/landing_page"
+import {AnnounceHeader } from "../components/landing_page"
 import '../static/css/landing_page.css'
 import { useEffect, useState} from "react";
 import { getCookie } from "../static/js/utils";
 import { API_URL } from "../static/js/const";
+import { ProfileBodyComponent } from "../components/profile_component";
 
-export const Inicio=()=>{
+export const Profile=()=>{
     const [logged,setLogged]=useState(false);
-
     useEffect(() => {
         getCookie("access_token")!=undefined?setLogged(true):setLogged(false);
 
@@ -22,13 +22,12 @@ export const Inicio=()=>{
             document.cookie=resp["token"]["access_token"];
             document.cookie=resp["token"]["refresh_token"];
             setLogged(true);
-        }):null;      }, []);
-
+        }):null;}, []);
+    if (!logged) return null;
     return (
     <>
         <AnnounceHeader isLogged={logged}/>
-        <LandingBody/>
-        <LandingFooter/>
+        <ProfileBodyComponent/>
     </>
     )
 }
