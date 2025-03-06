@@ -7,7 +7,6 @@ import logo from "../static/images/logo.png"
 import banner from "../static/images/banner/banner.jpg"
 
 import { MangaComponent } from "./manga_element.jsx"
-import Modal from './modals/add_to_cart_modal.jsx';
 
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -135,7 +134,6 @@ ${searchParams.get("adult") != null ? "&adult=true" : ""}`)
 
 
 export const LandingBody = () => {
-    const [isModalOpen, setIsModalOpen] = useState("");
 
     const [book, setBook] = useState(null);
     useEffect(() => {     //use effect hace la peticion cuando se monta el componente
@@ -167,8 +165,7 @@ export const LandingBody = () => {
                                     title={object.name}
                                     price={object.price}
                                     url={object.image}
-                                    quantity={object.quantity}
-                                    modal={setIsModalOpen} />
+                                    quantity={object.quantity}/>
                             }
                             return null; // Evita que `map()` devuelva `undefined`
                         })}
@@ -176,7 +173,6 @@ export const LandingBody = () => {
                     </div>
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(!isModalOpen)}/>
         </main>
     )
 }

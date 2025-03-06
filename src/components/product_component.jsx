@@ -1,6 +1,7 @@
 import "../static/css/product.css"
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Modal from './modals/add_to_cart_modal.jsx';
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -14,6 +15,7 @@ export const ProductBody = () => {
         quantity:null,
     });
     const [quantity, setQuantity] = useState(0)
+    const [isModalOpen, setIsModalOpen] = useState("");
 
     useEffect(() => {     //use effect hace la peticion cuando se monta el componente
         fetch(`${API_URL}/api/v1/books/getById?id=${searchParams.get("id")}`)
@@ -36,6 +38,7 @@ export const ProductBody = () => {
         e.preventDefault();
         if (quantity < 1) //Comprobocacion de si se añade una cantidad de 0 o menos
             return
+        setIsModalOpen(true);
         const cart = localStorage.getItem("cart");        //Comprobamos si existe "cart" en el local storage
         if (cart != null) {    //En el caso de que exista hacemos lo siguiente
             const cartJson = JSON.parse(cart);    //creamos una variable que almacene el contenido del carrito
@@ -80,7 +83,7 @@ export const ProductBody = () => {
                     </div>
                 </div>
             </div>
-
+            <Modal isOpen={isModalOpen} closeModal={() => setIsModalOpen(!isModalOpen)}/>
         </main>
     );
 
